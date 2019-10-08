@@ -30,19 +30,58 @@ function play(clicked){
             console.log('PLAYING')
         }
     } done(game)
-}
 
-const topLeft = board[0]
-const topCenter = board[1]
-const topRight = board[2]
-const middleLeft = game[3]
-const middleCenter = game[4]
-const middleRight = game[5]
-const botLeft = game[6]
-const botCenter = game[7]
-const botRight = game[8]
+    const topLeft = board[0]
+    const topCenter = board[1]
+    const topRight = board[2]
+    const middleLeft = board[3]
+    const middleCenter = board[4]
+    const middleRight = board[5]
+    const botLeft = board[6]
+    const botCenter = board[7]
+    const botRight = board[8]
 
-if (topLeft !== undefined && topLeft ===topCenter && topLeft=== topRight){
-    alert('hmm')
-    // return
+    const winner = document.querySelector('#winner')
+    
+    if (topLeft !== undefined && topLeft === middleCenter && topLeft === botRight) {
+      // alert(`${topLeft} is the winner`);
+      winner.innerText = `${topLeft}`
+      return;
+    }
+    if (topRight !== undefined && topRight === middleRight && topRight === botRight) {
+      // alert(`${topRight} is the winner`);
+      winner.innerText = `${topRight}`
+      return;
+    }
+    if (topLeft !== undefined && topLeft ===topCenter && topLeft=== topRight){
+        // alert(`${topLeft} wins!`)
+        winner.innerText = `${topLeft}`
+        return
+    }
+
+    if (middleLeft !== undefined && middleLeft === middleCenter && middleLeft === middleRight) {
+        // alert(`${middleLeft} is the winner`);
+        winner.innerText = `${topLeft}`
+        return;
+      }
+      if (botLeft !== undefined && botLeft === botCenter && botLeft === botRight) {
+        // alert(`${bottomLeft} is the winner`);
+        winner.innerText = `${botLeft}`
+        return;
+      }
+      if (topLeft !== undefined && topLeft === middleLeft && topLeft === botLeft) {
+        // alert(`${topLeft} is the winner`);
+        winner.innerText = `${topLeft}`
+        return;
+      }
+      if (topCenter !== undefined && topCenter === middleCenter && topCenter === botCenter) {
+        // alert(`${topCenter} is the winner`);
+        winner.innerText = `${topCenter}`
+        return;
+      }
+      if (botLeft !== undefined && botLeft === middleCenter && botLeft === topRight) {
+        // alert(`${bottomLeft} is the winner`);
+        winner.innerText = `${botLeft}`
+        return;
+      }
 }
